@@ -1,0 +1,6 @@
+/* page是指页面 */
+page {
+  font-family: "PingFangSC-Thin";
+  font-size: 32rpx;
+}
+

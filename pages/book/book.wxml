@@ -1,0 +1,26 @@
+<!-- wx:for 循环 小程序自带item block 无意义可以想成一个括号-->
+<!-- <block wx:for="{{books}}"> -->
+<!-- 列表渲染 -->
+<!-- <v-book book="{{item}}" />
+</block> -->
+<view>
+  <view wx:if="{{!searching}}" class="container">
+    <view class="header">
+      <view class='box' bind:tap="onSearch">
+        <image src="/images/icon/search.png" />
+        <text>搜索书籍</text>
+      </view>
+    </view>
+    <view class="sub-container">
+      <image class="head-img" src="/images/book/quality.png" />
+      <view class="books-container">
+        <block wx:key="id" wx:for="{{books}}">
+        <!-- wx:key object 不重复 数字或者字符串  -->
+          <v-book book="{{item}}" class="book" />
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- cancel 从组件传递过来的 onCancel自定义监听 -->
+  <v-search more="{{more}}" bind:cancel="onCancel" wx:if="{{searching}}"/>
+</view>
